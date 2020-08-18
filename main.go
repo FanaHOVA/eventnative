@@ -74,7 +74,7 @@ func main() {
 	//listen to shutdown signal to free up all resources
 	ctx, cancel := context.WithCancel(context.Background())
 	c := make(chan os.Signal, 1)
-	signal.Notify(c, syscall.SIGTERM, syscall.SIGINT, syscall.SIGKILL, syscall.SIGHUP)
+	signal.Notify(c, syscall.SIGTERM, syscall.SIGINT, syscall.SIGHUP)
 	go func() {
 		<-c
 		appstatus.Instance.Idle = true
